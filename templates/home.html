@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Survey</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    <h2>Survey</h2>
+    {% for field in form %}
+        <div>
+            <label>{{ field.label }}:</label>
+            <br>
+            {{ field }}
+        </div>
+    {% endfor %}
+    <br>
+    <input type="submit" value="Submit">
+    <a href="{% url 'result' %}">View Results</a>
+</form>
+</body>
+</html>
